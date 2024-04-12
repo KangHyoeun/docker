@@ -1,11 +1,5 @@
 #!/bin/bash
 
-
-apt remove ~nros-foxy-* && apt autoremove
-rm /etc/apt/sources.list.d/ros2.list
-apt update && apt autoremove
-apt -y upgrade
-
 apt-get install -y \
     tmux \
     curl \
