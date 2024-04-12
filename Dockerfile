@@ -1,5 +1,5 @@
 # Ubuntu:latest는 20.04를 의미합니다.
-FROM osrf/ros:melodic-desktop-bionic
+FROM osrf/ros:foxy-desktop-focal
 
 
 # apt로 패키지 받을 때 interative하게 사용하는 기능들을 끕니다. Docker에서 로그를 넘길 때 문제가 생길 수 있으므로 이 옵션은 필수입니다!
@@ -44,8 +44,7 @@ ENV LC_ALL en_US.UTF-8
 
 
 RUN rosdep init
-RUN apt-get install ros-melodic-rqt* -y 
-RUN apt-get install python3 python3-pip python-rosinstall python-rosdep python-rosinstall-generator -y
+RUN apt-get install ~nros-foxy-rqt* -y
 
 RUN mkdir -p /workspace && chmod -R +x /workspace
 
@@ -60,6 +59,6 @@ WORKDIR $HOME
 RUN rosdep update 
 RUN rosdep fix-permissions 
 
-COPY init-melodic.sh ./
+COPY init-foxy.sh ./
 
 RUN cd /
